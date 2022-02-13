@@ -73,6 +73,7 @@ export const createQuiz = async (
   }
   const response = await fetch(url);
   const responseJson: ApiQuizResponse = await response.json();
+  
   if (responseJson.responseCode > 0) {
     throw new Error("Invalid request");
   }
