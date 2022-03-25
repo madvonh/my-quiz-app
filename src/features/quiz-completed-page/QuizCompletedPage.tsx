@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import { Button } from "../../common/components/Button";
 import { useQuizContext } from "../../common/contexts/QuizContext";
 
 export const QuizCompletedPage = ()  => {
@@ -6,6 +8,7 @@ export const QuizCompletedPage = ()  => {
     const points =  answers
         .filter(answer => answer.answer.isCorrectAnswer)
         .length;
+        const navigate = useNavigate();
     return  (  
         <div id ="Leaderboard">
             <h1>Leaderboard</h1>
@@ -22,6 +25,10 @@ export const QuizCompletedPage = ()  => {
                     </>
                 })
             } 
+                  <Button onClick={() =>  {
+                     navigate("/my-quiz-app");
+                }}>
+                 Nya frågor</Button>
 
         </div>
     );
